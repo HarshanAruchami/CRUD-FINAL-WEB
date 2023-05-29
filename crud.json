@@ -1,34 +1,36 @@
 {
   "Cars": [
     {
-      "Car_Name": "Lambo",
-      "Car_Type": "nice car",
+      "Car_Name": "Lambo ",
+      "Car_Type": "we dont advertise",
       "Price": "1000000",
+      "Location": "Dubai",
       "Image": "assets/images/lamborghini",
-      "id": 1
+      "id": 5
+    },
+    {
+      "Car_Name": "Honda",
+      "Car_Type": "blast",
+      "Price": "1000",
+      "Location": "Kerala",
+      "Image": "assets/images/honda",
+      "id": 6
     },
     {
       "Car_Name": "GTR",
-      "Car_Type": "regreg",
+      "Car_Type": "rhe",
       "Price": "30",
+      "Location": "Chennai",
       "Image": "assets/images/gtr.jpg",
-      "id": 2
+      "id": 7
     },
     {
       "Car_Name": "BMW",
-      "Car_Type": "good",
+      "Car_Type": "sdfc",
       "Price": "1000",
-      "Location": "Dubai",
-      "Image": "assets/images/BMW",
-      "id": 4
-    },
-    {
-      "Car_Name": "HONDA",
-      "Car_Type": "beast",
-      "Price": "345435",
       "Location": "Mumbai",
-      "Image": "assets/images/honda",
-      "id": 5
+      "Image": "assets/images/BMW",
+      "id": 8
     }
   ]
 }

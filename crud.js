@@ -1,9 +1,8 @@
 //XMLHttpRequest object creation
-function loadTable(Car_Name = "", Location = "") {
+function loadTable(Car_Name = "") {
   const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", `http://localhost:3000/Cars?Car_Name_like=${Car_Name}|Location_like=${Location}`);
+  xhttp.open("GET", `http://localhost:3000/Cars?Car_Name_like=${Car_Name}`);
   xhttp.send();
-
   //load table
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -42,6 +41,22 @@ function loadTable(Car_Name = "", Location = "") {
 }
 loadTable();
 
+// function searchLocation(Location = '') {
+//   const xhttp = new XMLHttpRequest();
+//   xhttp.open("GET", `http://localhost:3000/Cars?Location_like=${Location}`);
+//   xhttp.send();
+
+//   xhttp.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       const objects = JSON.parse(this.responseText); // >>js objects
+//       for (let object of objects) {
+//         if (object.Location.toLowerCase().includes(Location.toLowerCase())) {
+//           loadTable();
+//         }
+//       }
+//     }
+//   };
+// }
 //search function
 function search() {
   const Car_Name = document.getElementById("searchbar").value;
@@ -50,7 +65,7 @@ function search() {
 //search location
 function searchPlace() {
   const Car_Location = document.getElementById("searchlocation").value;
-  loadTable(Car_Location);
+  searchLocation(Car_Location);
 }
 //Sweet alert box for adding Cars [CREATE]
 function showUserCreateBox() {
