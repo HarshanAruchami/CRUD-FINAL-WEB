@@ -1,8 +1,9 @@
 //XMLHttpRequest object creation
-function loadTable(Car_Name = "") {
+function loadTable(Car_Name = "", Location = "") {
   const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", `http://localhost:3000/Cars?Car_Name_like=${Car_Name}`);
+  xhttp.open("GET", `http://localhost:3000/Cars?Car_Name_like=${Car_Name}|Location_like=${Location}`);
   xhttp.send();
+
   //load table
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -43,8 +44,13 @@ loadTable();
 
 //search function
 function search() {
-  const Car_Name = document.getElementById("searchvalue").value;
+  const Car_Name = document.getElementById("searchbar").value;
   loadTable(Car_Name);
+}
+//search location
+function searchPlace() {
+  const Car_Location = document.getElementById("searchlocation").value;
+  loadTable(Car_Location);
 }
 //Sweet alert box for adding Cars [CREATE]
 function showUserCreateBox() {
@@ -56,6 +62,7 @@ function showUserCreateBox() {
       '<input id="Car_Name" class="swal2-input" placeholder="Car_Name">' +
       '<input id="Car_Type" class="swal2-input" placeholder="Car_Description" >' +
       '<input id="Price" class="swal2-input" placeholder="Price">' +
+      '<input id="Location" class="swal2-input" placeholder="Location">' +
       '<input id="Image" class="form-control swa4l1-input mt-4" type="file">',
     preConfirm: () => {
       userCreate();
@@ -67,6 +74,7 @@ function userCreate() {
   const pname = document.getElementById("Car_Name").value;
   const ptype = document.getElementById("Car_Type").value;
   const price = document.getElementById("Price").value;
+  const plocation = document.getElementById("Location").value;
   const image = document.getElementById("Image");
   const file = "assets/images/" + image.files[0].name;
 
@@ -80,6 +88,7 @@ function userCreate() {
         Car_Name: pname,
         Car_Type: ptype,
         Price: price,
+        Location: plocation,
         Image: file,
       })
     );
@@ -336,3 +345,4 @@ function validation() {
     return true;
   }
 }
+
